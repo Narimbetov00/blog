@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{% block content %}
+    {% for post in posts %}
+    <div style="margin-bottom: 10px;">
+        <div style=" border:  solid 2px ;border-color:rgb(91, 91, 194) ; border-radius: 3%; box-shadow: dimgray 4px; margin-left: 400px; margin-right: 400px;">
+           <div style="margin-left: 250px;">
+            <h1>{{ post.title }}</h1>
+            <p style="text-align: center; width: 450px;" >{{ post.discription | slice:":100" }}</p>
+            <a href="{% url 'post_detail' post.id%}">
+                <img style="width: 500px;" src="{{ post.image.url }}" alt="qwert">
+            </a>
+            <h5 style="margin-left: 300px;">{{ post.created }}</h5>
+           </div>
+          </div>
+          <hr>
+    </div>
+    {% endfor %}
+{% endblock content %}
