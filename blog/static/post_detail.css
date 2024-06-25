@@ -1,0 +1,17 @@
+.card{
+    border: solid 2px ;
+    margin: 2px 300px 4px;
+}
+
+.card-header{
+    background: rgb(117, 192, 249);
+    height: 50px;
+    font-size: 35px ;
+    
+}
+.card-body img{
+    margin-left: 200px;
+    
+
+    width: 500px;
+}

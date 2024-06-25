@@ -11,6 +11,7 @@ def homepage(request):
 def post_detail(request,id):
     post = get_object_or_404(models.Blog,id=id)
     return render(request,'post_detail.html',{'post':post})
+#DIZIMNEN OTIW
 def registration(request):
     if request.method == 'POST':
         form = forms.RegistionForm(request.POST)
@@ -22,7 +23,7 @@ def registration(request):
         form = forms.RegistionForm()
     return render(request,'registration.html',{'form':form})
 
-
+# KIRIW BOLIMI
 def loginpage(request):
     if request.method == 'POST':
         form = forms.AuthenticationForm(request,data=request.POST)
@@ -39,7 +40,7 @@ def logoutpage(request):
     logout(request)
     return redirect('homepage')
 
-
+#POST JARATIW
 def create_post(request):
     if request.method == 'POST':
         form = forms.BlogForm(request.POST,request.FILES)
@@ -49,3 +50,18 @@ def create_post(request):
     else:
         form = forms.BlogForm()
     return render(request,'create_post.html',{'form':form})
+#POSTTI OZGERTIW
+def update_post(request,id):
+    model = models.Blog.objects.get(id=id)
+    form = forms.BlogForm(request.POST or None , request.FILES,instance=model)
+    if form.is_valid():
+        form.save()
+        return redirect('homepage')
+    return render(request,'update.html',{'form':form})
+
+def delete_post(request,id):
+    model = models.Blog.objects.get(id=id)
+    if request.method == 'POST':
+        model.delete()
+        return redirect('homepage')
+    return render(request,'delete.html',{'model':model})
