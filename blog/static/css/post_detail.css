@@ -1,5 +1,6 @@
 .card{
     border: solid 2px ;
+    border-radius: 0px;
     margin: 2px 300px 4px;
 }
 
@@ -11,7 +12,10 @@
 }
 .card-body img{
     margin-left: 200px;
-    
-
     width: 500px;
+}
+
+.card-footer{
+    display: flex;
+    margin-left: 10px;
 }

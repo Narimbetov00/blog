@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{% static 'post_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
 </head>
 <body>
     <header class="text-gray-600 body-font">
@@ -21,17 +21,21 @@
             <a class="mr-5 hover:text-gray-900">Third Link</a>
             <a class="mr-5 hover:text-gray-900">Fourth Link</a>
           </nav>
+          <a href="{% url 'new_post' %}"> 
+             <img style="margin-right: 30px; width: 30px;" src="{% static 'image/more.png' %}" alt="foto">
+          </a>
           {% if user.is_authenticated %}
           <p>
             User:{{ user.username }}
             
           </p>
           <a href="{% url 'logout' %}"> 
-            <button style="margin-left: 8px; " class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log out
+            <button style="margin-left: 8px; " class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"> Log out
              <img style="margin-left: 4px; width: 30px;" src="{% static 'logout.png' %}" alt="foto">
             </button>
-            {% else %}
           </a>
+            {% else %}
+          
               <a href="{% url 'login' %}">
                 <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log In
                   <img style="margin-left: 4px; width: 30px;" src="{% static 'login-avatar.png' %}" alt="foto">

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static  %}
+{% load static %}
 
 {% block content %}
     <div class="container">
@@ -9,9 +9,10 @@
                 <img  src="{{ post.image.url }}" alt="qwert">
                 <p >{{ post.discription  }}</p>
             </div>
-            <div class="card-footer"><h5 style="margin-left: 450px;" >{{ post.created }}</h5>
-                <a href="{% url 'update_post' post.id%}">update</a>
-                <a href="{% url 'delete_post' post.id %}">Delete</a>
+            <div class="card-footer">
+                <h3 class="card-footer">{{ post.created }}</h3>
+                <h3 class="card-footer"><a href="{% url 'update_post' post.id%}">update</a></h3>
+                <h3 class="card-footer"><a href="{% url 'delete_post' post.id %}">Delete</a></h3>
             </div>
         </div>
     </div>    
